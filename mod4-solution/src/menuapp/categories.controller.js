@@ -7,7 +7,5 @@
   function CategoriesController(categories) {
     var catCtrl = this;
     catCtrl.categories = categories;
-    console.log(categories);
-    catCtrl.test = "test";
   }
 })();

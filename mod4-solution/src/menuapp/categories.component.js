@@ -3,10 +3,9 @@
 
   angular.module("data")
   .component("categories", {
-    templateUrl: 'src/menuapp/categories.template.html',
+    templateUrl: 'src/menuapp/templates/categories.template.html',
     bindings: {
       categories: '<'
     }
-
   });
 })();

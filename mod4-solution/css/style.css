@@ -1,6 +1,18 @@
-body { background-color: gray; }
-h1 {
+body {
+  background-color: #AAA;
   font-family: sans-serif;
+}
+h1 {
   text-align: center;
-  color: white;
+  color: #222;
+}
+li[ui-sref] {
+  text-decoration: underline;
+}
+table { max-width: 1000px; }
+th,td { padding: 5px; }
+#main {
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
 }
