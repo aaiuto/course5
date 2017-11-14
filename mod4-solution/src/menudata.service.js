@@ -4,23 +4,34 @@
   angular.module("data")
   .service("MenuDataService", MenuDataService);
 
-  MenuDataService.$inject = ['$http'];
-  function MenuDataService($http) {
+  MenuDataService.$inject = ['$q','$http','categories'];
+  function MenuDataService($q, $http,categories) {
     var service = this;
 
-    var getAllCategories = function() {
-      var response = $http({
+    service.getAllCategories = function() {
+      var def = $q.defer();
+      $http({
         method: "GET",
         url: "https://davids-restaurant.herokuapp.com/categories.json"
+      }).then(function mySuccess(response) {
+        //categories = response.data;
+        def.resolve(response);
       });
-      return response;
+      return def.promise;
     };
 
-    var getItemsForCategory = function(categoryShortName) {
+    // service.getAllCategories = function() {
+    //   return $http.get('https://davids-restaurant.herokuapp.com/categories.json')
+    //   .then(function(response) {
+    //     return response.data;
+    //   });
+    // };
+
+    service.getItemsForCategory = function(categoryShortName) {
       var response = $http({
           method: "GET",
           url: "https://davids-restaurant.herokuapp.com/menu_items.json?category="
-            + categoryShortName;
+            + categoryShortName
       });
       return response;
     };

@@ -11,32 +11,33 @@
     $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'src/blahblahblah/home.template.html'
+      templateUrl: 'src/menuapp/home.template.html'
     })
     .state('categories', {
       url: '/categories',
-      templateUrl: 'src/blahblahblah/categories.template.html',
-      controller: "",
+      templateUrl: 'src/menuapp/categories.template.html',
+      controller: "CategoriesController as catCtrl",
       resolve: {
-        items: ['MenuDataService', function(MenuDataService) {
+        categories: ['MenuDataService', function(MenuDataService) {
           return MenuDataService.getAllCategories();
         }]
       }
     })
-    .state('items', {
-      url: '/item-detail/{itemId}',
-      templateUrl: '/src/blahblahblah/items.template.html',
-      controller: "",
-      resolve: {
-        item: ['$stateParams', 'MenuDataService',
-          function ($stateParams, MenuDataService) {
-            return MenuDataService.getAllCategories()
-              .then(function (items) {
-                return items[$stateParams.itemID];
-              });
-          }]
-      }
-    });
+    // .state('items', {
+    //   url: '/item-detail/{itemId}',
+    //   templateUrl: '/src/menuapp/items.template.html',
+    //   controller: "",
+    //   resolve: {
+    //     item: ['$stateParams', 'MenuDataService',
+    //       function ($stateParams, MenuDataService) {
+    //         return MenuDataService.getAllCategories()
+    //           .then(function (items) {
+    //             return items[$stateParams.itemID];
+    //           });
+    //       }]
+    //   }
+    // })
+    ;
 
   }
 
