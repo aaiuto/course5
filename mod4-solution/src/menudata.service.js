@@ -8,24 +8,27 @@
   function MenuDataService($q, $http,categories) {
     var service = this;
 
-    service.getAllCategories = function() {
-      var def = $q.defer();
-      $http({
-        method: "GET",
-        url: "https://davids-restaurant.herokuapp.com/categories.json"
-      }).then(function mySuccess(response) {
-        //categories = response.data;
-        def.resolve(response);
-      });
-      return def.promise;
-    };
-
     // service.getAllCategories = function() {
-    //   return $http.get('https://davids-restaurant.herokuapp.com/categories.json')
-    //   .then(function(response) {
-    //     return response.data;
+    //   var def = $q.defer();
+    //   $http({
+    //     method: "GET",
+    //     url: "https://davids-restaurant.herokuapp.com/categories.json"
+    //   }).then(function mySuccess(response) {
+    //     //categories = response.data;
+    //     def.resolve(response);
     //   });
+    //   return def.promise;
     // };
+
+    service.getAllCategories = function() {
+      return $http({
+          method: 'GET',
+          url: 'https://davids-restaurant.herokuapp.com/categories.json'
+      }).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    };
 
     service.getItemsForCategory = function(categoryShortName) {
       var response = $http({
