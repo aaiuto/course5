@@ -25,7 +25,7 @@
     })
      .state('items', {
        url: '/item-detail/{itemId}',
-       templateUrl: '/src/menuapp/templates/items.template.html',
+       templateUrl: 'src/menuapp/templates/items.template.html',
        controller: "ItemsController as itemCtrl",
        resolve: {
          items: ['$stateParams', 'MenuDataService',
