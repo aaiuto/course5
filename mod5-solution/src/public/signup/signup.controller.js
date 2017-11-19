@@ -8,7 +8,6 @@
     var signupCtrl = this;
     var service = SignupService;
     signupCtrl.submit = function() {
-      console.log("submit clicked");
       return $http.get(ApiPath + "/menu_items/" + signupCtrl.user.favorite.toUpperCase() + ".json")
       .then(function (response) {
         signupCtrl.user.saved = true;
@@ -16,7 +15,7 @@
         signupCtrl.valid = true;
       }, function (response) {
         signupCtrl.valid = false;
-        signupCtrl.user.saved = false;
+        service.user = null;
       });
     };
   }
