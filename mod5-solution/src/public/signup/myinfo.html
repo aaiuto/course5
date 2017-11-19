@@ -1,0 +1,19 @@
+<div class="container">
+  <span ng-if="infoCtrl.user">
+  First Name: {{ infoCtrl.user.firstName }}<br>
+  Last Name: {{ infoCtrl.user.lastName }}<br>
+  E-Mail: {{ infoCtrl.user.email }}<br>
+  Phone: {{ infoCtrl.user.phone }}<br>
+  Favorite Item: <br>
+                <img class="img-responsive" width="250" height="150"
+                      ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.user.data.short_name}}.jpg"
+                      alt="{{$infoCtrl.user.data.name}}"><br>
+                {{infoCtrl.user.data.name}}<br>
+                {{infoCtrl.user.data.description}}
+
+
+</span>
+  <span ng-if="infoCtrl.user.saved === undefined || infoCtrl.user.saved === false">
+    Not signed up yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </span>
+</div>

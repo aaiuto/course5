@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Newsletter Signup</h2>
+<fieldset>
+  <form name="signupForm" style="color:black" novalidate>
+    <input type="text" name="firstName" placeholder="First Name"
+    ng-model="signupCtrl.user.firstName"
+    required>
+      <span style="color:white" ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">
+        {{signupForm.firstName.$required}}
+        First Name is required
+      </span>
+      <br>
+    <input type="text" name="lastName" placeholder="Last Name"
+    ng-model="signupCtrl.user.lastName"
+    required>
+      <span style="color:white" ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched">
+        Last Name is required
+      </span>
+      <br>
+    <input type="email" name="email" placeholder="E-Mail"
+    ng-model="signupCtrl.user.email"
+    required>
+      <span style="color:white" ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+        E-Mail is invalid
+      </span>
+      <br>
+    <input type="text" name="phone" placeholder="Phone"
+    ng-model="signupCtrl.user.phone"
+    required>
+      <span style="color:white" ng-if="signupForm.phone.$error.required && signupForm.phone.$touched">
+        Phone is required
+      </span>
+      <br>
+    <input type="text" name="favorite" placeholder="Favorite Menu Item"
+    ng-model="signupCtrl.user.favorite">
+    <span style="color:white" ng-if="signupCtrl.valid === false">No such menu number exists</span>
+      <br>
+    <button
+        ng-disabled="signupForm.$invalid"
+        ng-click="signupCtrl.submit()">Submit</button>
+
+  </form>
+  <span ng-if="signupCtrl.valid">Your information has been saved</span>
+</fieldset>
+</div>
